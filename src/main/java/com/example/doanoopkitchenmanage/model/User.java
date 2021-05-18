@@ -1,10 +1,22 @@
 package com.example.doanoopkitchenmanage.model;
 
+import javax.persistence.*;
+
+@Entity(name ="user")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "account")
     private String account;
+    @Column(name = "password")
     private String password;
+    @Column(name = "name")
     private String name;
+    @Column(name = "email")
     private String email;
+    @Column(name = "age")
     private int age;
 
     public User() {

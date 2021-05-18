@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head >
+    <meta charset="UTF-8">
+    <title>Customer List</title>
+
+</head>
+<body>
+<h3>Employees</h3>
+<!--
+<p>
+    <a th:href="@{/home/employee/create}">Add new employee</a>
+</p>
+-->
+
+<table id="employees">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Number Contact</th>
+        <th>Shift</th>
+        <th>Salary</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${employees}">
+        <td th:text="${row.getName()}"></td>
+        <td th:text="${row.getNumberContact()}"></td>
+        <td th:text="${row.getShift()}"></td>
+        <td th:text="${row.getSalary()}"></td>
+<!--        <td><a th:href="@{/home/employee/{id}/edit(id=${row.getId()})}">edit</a></td>
+        <td><a th:href="@{/home/employee/{id}/delete(id=${row.getId()})}">delete</a></td>
+        <td><a th:href="@{/home/employee/{id}/view(id=${row.getId()})}">view</a></td>-->
+    </tr>
+    </tbody>
+</table>
+<footer></footer>
+</body>
+</html>
