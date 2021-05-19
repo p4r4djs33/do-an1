@@ -15,12 +15,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
+
     //-----HOME PAGE
     @GetMapping("/home/employee")
     public String index(Model model) {
         model.addAttribute("employees", employeeService.findAll());
         return "employee/list";
     }
+
     //-----CREATE NEW EMPLOYEE
     @GetMapping("/home/employee/create")
     public ModelAndView create() {
@@ -28,11 +30,12 @@ public class EmployeeController {
         modelAndView.addObject("employee", new Employee());
         return modelAndView;
     }
+
     @PostMapping("/home/employee/save")
     public String save(Employee employee, RedirectAttributes redirectAttributes) {
 
         employeeService.save(employee);
-        redirectAttributes.addFlashAttribute("message","Created employee successfully!");
+        redirectAttributes.addFlashAttribute("message", "Created employee successfully!");
         return "redirect:/home/employee";
     }
 
@@ -44,4 +47,29 @@ public class EmployeeController {
         return modelAndView;
     }
 
+    @PostMapping("/home/employee/update")
+    public String update(Employee employee, RedirectAttributes redirect) {
+        employeeService.save(employee);
+        redirect.addFlashAttribute("message", "Edit employee successfully!");
+        return "redirect:/home/employee";
+    }
+
+    //-----DELETE EMPLOYEE
+    @GetMapping("/home/employee/{id}/delete")
+    public ModelAndView delete(@PathVariable("id") Long id) {
+        ModelAndView modelAndView = new ModelAndView("employee/delete");
+        modelAndView.addObject("employee", employeeService.findById(id));
+        return modelAndView;
+    }
+    @PostMapping("/home/employee/delete")
+    public String delete(Employee employee, RedirectAttributes redirect) {
+        employeeService.remove(employee.getId());
+        redirect.addFlashAttribute("message", "Delete employee successfully!");
+        return "redirect:/home/employee";
+    }
+    @GetMapping("/home/employee/{id}/view")
+    public String view(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("employee", employeeService.findById(id));
+        return "employee/view";
+    }
 }

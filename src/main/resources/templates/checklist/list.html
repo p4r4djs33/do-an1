@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head >
+  <meta charset="UTF-8">
+  <title>Customer List</title>
+
+</head>
+<body>
+<h3>Checklists</h3>
+<p>
+  <a th:href="@{/home/checklist/create}">Add new checklist</a>
+</p>
+<th:block th:if="${message}">
+  <p th:text="${message}"></p>
+</th:block>
+<table id="checklists" border="1">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Employee</th>
+    <th>Number Import</th>
+    <th>Number Begin</th>
+    <th>Number End</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>View</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="row,rowStat : ${checklists}">
+    <td th:text="${row.getId()}"></td>
+    <td th:text="${row.getEmployee()}"></td>
+    <td th:text="${row.getNumberImport()}"></td>
+    <td th:text="${row.getNumberBegin()}"></td>
+    <td th:text="${row.getNumberEnd()}"></td>
+    <td><a th:href="@{/home/checklist/{id}/edit(id=${row.getId()})}">edit</a></td>
+    <td><a th:href="@{/home/checklist/{id}/delete(id=${row.getId()})}">delete</a></td>
+    <td><a th:href="@{/home/checklist/{id}/view(id=${row.getId()})}">view</a></td>
+  </tr>
+  </tbody>
+</table>
+<footer></footer>
+</body>
+</html>

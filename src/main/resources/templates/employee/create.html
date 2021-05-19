@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Create new employee</title>
@@ -13,38 +13,28 @@
         <fieldset>
             <legend>Employee Information</legend>
             <tr>
-                <div>
-                    <td></td>
-                    <label>ID</label></td>
-                    <td><input type="text" th:field="*{id}" readonly></td>
-                </div>
+                <td></td>
+                <label>ID</label></td>
+                <td><input type="text" th:field="*{id}" readonly></td></br>
             </tr>
             <tr>
-                <div>
-                    <td><label>Name</label></td>
-                    <td><input type="text" th:field="*{name}"></td>
-                </div>
+                <td><label>Name</label></td>
+                <td><input type="text" th:field="*{name}"></td></br>
             </tr>
             <tr>
-                <div>
-                    <td><label>Number Contact</label></td>
-                    <td><input type="text" th:field="*{numberContact}"></td>
-                </div>
+                <td><label>Number Contact</label></td>
+                <td><input type="text" th:field="*{numberContact}"></td></br>
             </tr>
             <tr>
-                <div>
-                    <td><label>Shift</label></td>
-                    <td><input type="text" th:field="*{shift}"></td>
-                </div>
+                <td><label>Shift</label></td>
+                <td><input type="text" th:field="*{shift}"></td></br>
             </tr>
             <tr>
-                <div>
-                    <td><label>Salary</label></td>
-                    <td><input type="text" th:field="*{salary}"></td>
-                </div>
+                <td><label>Salary</label></td>
+                <td><input type="text" th:field="*{salary}"></td></br>
             </tr>
             <tr>
-                <td><input type="submit" value="Create"></td>
+                <td><input type="submit" value="Create"></td></br>
             </tr>
         </fieldset>
     </form>

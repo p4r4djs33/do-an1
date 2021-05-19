@@ -1,4 +1,4 @@
-package com.example.doanoopkitchenmanage.service.employee;
+package com.example.doanoopkitchenmanage.repository;
 
 import com.example.doanoopkitchenmanage.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;

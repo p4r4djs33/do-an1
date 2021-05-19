@@ -1,7 +1,7 @@
-package com.example.doanoopkitchenmanage.service.user;
+package com.example.doanoopkitchenmanage.service.user.impl;
 
 import com.example.doanoopkitchenmanage.model.User;
-import com.example.doanoopkitchenmanage.service.user.UserRepository;
+import com.example.doanoopkitchenmanage.repository.UserRepository;
 import com.example.doanoopkitchenmanage.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

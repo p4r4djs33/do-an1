@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Delete form</title>
+</head>
+<body>
+<h3>Delete Employee</h3>
+<p>
+  <a th:href="@{/home/employee}">Back to customer list</a>
+</p>
+<H1>Are you sure?</H1>
+<div id="form">
+  <form action="#" th:action="@{/home/employee/delete}" th:object="${employee}" method="post">
+    <fieldset>
+      <legend>Employee Information</legend>
+      <tr>
+        <div>
+          <td></td>
+          <label>ID</label></td>
+          <td><input type="text" th:field="*{id}" readonly></td>
+        </div>
+      </tr>
+      <tr>
+        <div>
+          <td><label>Name</label></td>
+          <td><input type="text" th:field="*{name}" readonly></td>
+        </div>
+      </tr>
+      <tr>
+        <div>
+          <td><label>Number Contact</label></td>
+          <td><input type="text" th:field="*{numberContact}" readonly></td>
+        </div>
+      </tr>
+      <tr>
+        <div>
+          <td><label>Shift</label></td>
+          <td><input type="text" th:field="*{shift}" readonly></td>
+        </div>
+      </tr>
+      <tr>
+        <div>
+          <td><label>Salary</label></td>
+          <td><input type="text" th:field="*{salary}" readonly></td>
+        </div>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Delete"></td>
+      </tr>
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>
