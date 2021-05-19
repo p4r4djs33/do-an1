@@ -7,13 +7,13 @@
 </head>
 <body>
 <h3>Employees</h3>
-<!--
 <p>
     <a th:href="@{/home/employee/create}">Add new employee</a>
 </p>
--->
-
-<table id="employees">
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<table id="employees" border="1">
     <thead>
     <tr>
         <th>Name</th>
@@ -31,9 +31,9 @@
         <td th:text="${row.getNumberContact()}"></td>
         <td th:text="${row.getShift()}"></td>
         <td th:text="${row.getSalary()}"></td>
-<!--        <td><a th:href="@{/home/employee/{id}/edit(id=${row.getId()})}">edit</a></td>
+        <td><a th:href="@{/home/employee/{id}/edit(id=${row.getId()})}">edit</a></td>
         <td><a th:href="@{/home/employee/{id}/delete(id=${row.getId()})}">delete</a></td>
-        <td><a th:href="@{/home/employee/{id}/view(id=${row.getId()})}">view</a></td>-->
+        <td><a th:href="@{/home/employee/{id}/view(id=${row.getId()})}">view</a></td>
     </tr>
     </tbody>
 </table>

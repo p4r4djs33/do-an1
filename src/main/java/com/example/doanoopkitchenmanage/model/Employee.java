@@ -10,7 +10,7 @@ public class Employee {
     private Long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "numberContact")
+    @Column(name = "number_contact")
     private String numberContact;
     @Column(name = "shift")
     private String shift;
