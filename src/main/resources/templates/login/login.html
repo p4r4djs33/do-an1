@@ -1,30 +1,98 @@
 
 <!DOCTYPE html>
-<html lang="en" xmlns:form="https://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="login/layout :: head">
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
 <body>
-<h3>Home</h3>
-<img th:src="@{../../static/images/2.jpg}">
-<form action="#" th:action="home" method="post" th:object="${login}">
+<div id="top">
+  <div id ="logo">
+    <img src="/pictures/logo2.png" style="width: 200px ;height: 100px">
+  </div>
+  <div id ="top2">
+    <div id ="menu">
+      <ul>
+        <li><a href="#" title="HOME"><strong>HOME</strong></a></li>
+        <li><a href="#" title="INTRODUCE"><strong>INTRODUCE</strong></a></li>
+        <li><a href="#" title="ABOUT"><strong>ABOUT</strong></a></li>
+        <li><a href="#" title="MENU"><strong>MENU</strong></a></li>
+        <li><a href="#" title="ENETS"><strong>ENETS</strong></a></li>
+        <li><a href="#" title="CONTACTS"><strong>CONTACTS</strong></a></li>
+        <input type="text" name="text" id="text" value="" />
+      </ul>
+    </div>
+    <div id = "abc">
+      <div id ="diachi">
+        <li>Địa chỉ: tầng 2 ,số 55 Trần Đại Nghĩa, Đông Tâm ,Hai Bà Trưng, Hà Nội.</li>
+        <li>Số Điên thoại:0365 265 651</li>
+      </div>
+<!--      <div id="login">
+        <div id="login1">
+          <li>
+            <label><strong>USER</strong></label>
+            <input type="text" name="user" id="user" value="" />
+            <span id="errorname" class="error"></span>
+          </li>
+          <li>
+            <label><strong>PASS</strong></label>
+            <input type="text" name="pass" is="pass" value="" />
+            <span id="errorname" class="error"></span></li>
+        </div>
+        <div id="login2">
+          <button onclick="getInfo() ; return false;"><strong>ĐĂNG NHẬP</strong> </button>
+        </div>
+      </div>-->
+      <div id="login">
+        <form action="#" th:action="home" method="post" th:object="${login}">
+          <div id="login1">
+            <label>Account</label>
+            <input type="text" th:field="*{account}">
+            <label>Password</label>
+            <input type="password" th:field="*{password}">
+          </div>
+          <div id="login2">
+            <button type="submit">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="main">
+  <div id="a">
+  </div>
+  <div id="main1">
+    <div id="anh1">
+      <img src="/pictures/7.jpg" style="width: 150px ;height: 150px;  border-style:ridge ;border-color: firebrick;">
+    </div>
+    <div id="main11">
+      <div id="anh2">
+        <img src="/pictures/2.jpg" style="width: 150px ;height: 150px; border-style:ridge ;border-color: firebrick;">
+      </div>
+      <div id="anh3">
+        <img src="/pictures/3.jpg" style="width: 150px ;height: 150px; border-style:ridge ;border-color: firebrick">
+      </div>
+    </div>
+  </div>
+  <div id="main2">
+    <div id="anh5">
+      <img src="/pictures/4.jpg" style="width: 150px ;height: 150px; border-style:ridge ;border-color: firebrick">
+    </div>
+    <div id="main21">
+      <div id="anh6">
+        <img src="/pictures/5.jpg" style="width: 150px ;height: 150px; border-style:ridge ;border-color: firebrick">
+      </div>
+      <div id="anh7">
+        <img src="/pictures/6.jpg" style="width: 150px ;height: 150px; border-style:ridge ;border-color: firebrick">
+      </div>
+    </div>
+  </div>
 
-  <fieldset>
-    <legend>Login</legend>
-    <table>
-      <tr>
-        <td><label>Account</label></td>
-        <td><input type="text" th:field="*{account}"></td>
-      </tr>
-      <tr>
-        <td><label>Password</label></td>
-        <td><input type="password" th:field="*{password}"></td>
-      </tr>
+</div>
+<div id="footer">
 
-    </table>
-    <input type="submit" value="Login">
-  </fieldset>
-</form>
+</div>
+
 </body>
 </html>

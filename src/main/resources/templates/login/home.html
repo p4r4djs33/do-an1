@@ -1,22 +1,97 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:form="https://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="/login/layout-home :: head">
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
 <body>
-<h1>Welcome</h1>
+<div id="top">
+  <div id="logo">
+    <img src="./pictures/logo2.png" style="width: 210px;height: 100px;">
 
-<h3>Account: <span th:text="${user.account}"></span> </h3>
-<h3>Name: <span th:text="${user.name}"></span> </h3>
-<h3>Email: <span th:text="${user.email}"></span> </h3>
-<h3>Age: <span th:text="${user.age}"></span> </h3>
+  </div>
+
+  <div id="top2">
+    <div id ="timkiem">
+      <div class="box">
+        <input type="text" placeholder="Search here">
+        <a><i class="fas fa-search-location"></i></a>
+      </div>
+    </div>
+    <div id="Dangxuat">
+      <button onclick="getInfo() ; "><strong>ĐĂNG XUẤT</strong></button>
+    </div>
+  </div>
+</div>
+
+
+<div id="menu">
+  <button onclick="getInfo() "><strong>TRANG CHỦ</strong> </button>
+  <button onclick="getInfo() ; "><strong>MÓN HIỆN TẠI HẾT</strong> </button>
+  <button onclick="getInfo() ;"><strong>MÓN HOT</strong> </button>
+  <button onclick="getInfo() ; " ><strong>LỊCH LÀM NHÂN VIÊN</strong> </button>
+  <button onclick="getInfo() ;"><strong>HỖ TRỢ</strong> </button>
+</div>
+
+<div id="main">
+  <div id="left">
+    <button onclick="getInfo() ;"><strong>MÓN</strong> </button>
+    <button onclick="getInfo() ; "><strong>BẢNG KIỂM ĐỒ</strong> </button>
+    <button onclick="getInfo() ;"><strong>NGUYÊN LIỆU</strong> </button>
+    <button onclick="getInfo() ; " ><strong>HỒ SƠ NHÂN VIÊN</strong> </button>
+    <button onclick="getInfo() ;"><strong>BÁO CÁO</strong> </button>
+  </div>
+
+  <div id="right">
+    <ul>
+      <li>
+        <img src="./pictures/2.jpg">
+        <h2> Cơm cuộn truyền thống</h2>
+        Cơm cuộn rong biển Hàn Quốc hay còn gọi là Kimbap/Gimbap là một món cơm ngon,
+        thơm và đủ dinh dưỡng. Cách làm cơm cuộn rong biển cũng rất đơn giản nhưng cần có bí quyết để cơm không bị khô.
+      </li>
+      <li>
+        <img src="./pictures/4.jpg">
+        <h2>Tokbokki truyền thống</h2>
+        Tokbokki hay còn gọi là bánh gạo cay là một món ăn truyền thống của Hàn Quốc mà mỗi du khách đến đất nước này đều muốn thưởng thức.
+        Nhưng với công thức dưới đây, bạn có thể thưởng thức trọn vẹn vị ngon của bánh gạo cay...
+      </li>
+      <li>
+        <img src="./pictures/10.jpg">
+        <h2>thông tin về ẩm thực</h2>
+        Ngày nay nền văn hóa các nước có sự giao thoa và hội nhập rất lớn.
+        Ẩm thực Hàn Quốc là một điển hình bởi ngày nay chúng ta đang dần thích nghi và yêu thích các món ăn mang hương vị Hàn Quốc.
+      </li>
+      <li>
+        <img src="./pictures/b.png">
+        <h2>Quán mới khai trương</h2>
+        Bạn sẽ không khó để tìm đến tiệm bánh mì nhỏ mang tên Hòa Mã nằm trên đường Cao Thắng, quận 3.
+        Theo lời kể lại của nhiều người thì đây là một trong những nơi bán bánh mì thịt đầu tiên ở Sài Gòn..
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div id="footer">
+  <div id ="ft1">
+    <ul>
+      <h2>*Giới thiệu</h2>
+      <a>. Hệ thông cửa hàng</a>
+      <a>. Khuyến mại</a>
+      <a>. Tuyển dụng</a>
+      <a>. liên hệ</a>
+    </ul>
+  </div>
+  <div id ="ft2">
+    <img src="./pictures/face.png" style="width: 20px; height: 20px">
+    <img src="./pictures/ims.png" style="width: 20px; height: 20px">
+    <img src="./pictures/tw.jpg" style="width: 20px; height: 20px">
+    <img src="./pictures/za.webp" style="width: 20px; height: 20px">
+    <img src="./pictures/you.png" style="width: 20px; height: 20px">
+    <img src="./pictures/gg.png" style="width: 20px; height: 20px">
+    <img src="./pictures/ggm.png" style="width: 20px; height: 20px">
+  </div>
+</div>
+
 </body>
-<thead>
-<!--<a th:href="@{/home/employee}">Nhân viên | </a>
-<a th:href="2">Nguyên liệu | </a>
-<a th:href="3">Công thức món | </a>
-<a th:href="4">Bản kiểm đồ | </a>
-<a th:href="5">Báo cáo | </a>-->
-</thead>
 </html>
