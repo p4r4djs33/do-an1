@@ -18,10 +18,11 @@
   <tr>
     <th>Id</th>
     <th>Employee</th>
-    <th>Number Import</th>
+    <th>Date created</th>
+<!--    <th>Number Import</th>
     <th>Number Begin</th>
-    <th>Number End</th>
-    <th>Edit</th>
+    <th>Number End</th>-->
+<!--    <th>Edit</th>-->
     <th>Delete</th>
     <th>View</th>
   </tr>
@@ -29,13 +30,15 @@
   <tbody>
   <tr th:each="row,rowStat : ${checklists}">
     <td th:text="${row.getId()}"></td>
-    <td th:text="${row.getEmployee()}"></td>
-    <td th:text="${row.getNumberImport()}"></td>
+    <td th:if="${row.employee}" th:text="${row.employee.name}"></td>
+    <td th:unless="${row.employee}"></td>
+    <td th:text="${row.getDateCreated()}"></td>
+<!--    <td th:text="${row.getNumberImport()}"></td>
     <td th:text="${row.getNumberBegin()}"></td>
-    <td th:text="${row.getNumberEnd()}"></td>
-    <td><a th:href="@{/home/checklist/{id}/edit(id=${row.getId()})}">edit</a></td>
-    <td><a th:href="@{/home/checklist/{id}/delete(id=${row.getId()})}">delete</a></td>
-    <td><a th:href="@{/home/checklist/{id}/view(id=${row.getId()})}">view</a></td>
+    <td th:text="${row.getNumberEnd()}"></td>-->
+<!--    <td><a th:href="@{/home/checklist/{id}/edit(id=${row.getId()})}">edit</a></td>-->
+    <td><a th:href="@{/home/checklist/__${row.id}__/delete}">delete</a></td>
+    <td><a th:href="@{/home/checklist/__${row.id}__/view}">view</a></td>
   </tr>
   </tbody>
 </table>

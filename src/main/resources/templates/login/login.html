@@ -4,6 +4,11 @@
 <head th:replace="login/layout :: head">
   <meta charset="UTF-8">
   <title>Title</title>
+  <style type="text/css" media="all">
+    body{
+      background-colos:line;
+    }
+  </style>
 </head>
 <body>
 <div id="top">
@@ -27,32 +32,17 @@
         <li>Địa chỉ: tầng 2 ,số 55 Trần Đại Nghĩa, Đông Tâm ,Hai Bà Trưng, Hà Nội.</li>
         <li>Số Điên thoại:0365 265 651</li>
       </div>
-<!--      <div id="login">
-        <div id="login1">
-          <li>
-            <label><strong>USER</strong></label>
-            <input type="text" name="user" id="user" value="" />
-            <span id="errorname" class="error"></span>
-          </li>
-          <li>
-            <label><strong>PASS</strong></label>
-            <input type="text" name="pass" is="pass" value="" />
-            <span id="errorname" class="error"></span></li>
-        </div>
-        <div id="login2">
-          <button onclick="getInfo() ; return false;"><strong>ĐĂNG NHẬP</strong> </button>
-        </div>
-      </div>-->
+
       <div id="login">
         <form action="#" th:action="home" method="post" th:object="${login}">
           <div id="login1">
-            <label>Account</label>
+            <label><strong>USER</strong></label>
             <input type="text" th:field="*{account}">
-            <label>Password</label>
+            <label><strong>PASS</strong></label>
             <input type="password" th:field="*{password}">
           </div>
           <div id="login2">
-            <button type="submit">Login</button>
+            <button type="submit"><strong>Login</strong></button>
           </div>
         </form>
       </div>

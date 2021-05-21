@@ -1,6 +1,7 @@
 package com.example.doanoopkitchenmanage.model;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -9,26 +10,36 @@ public class Checklist {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Long numberImport;
+    private Long numberBegin;
+    private Long numberEnd;
+    private String dateCreated;
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
-    private Long numberImport;
     @OneToMany(targetEntity = Ingredient.class)
     private List<Ingredient> ingredients;
 
-    private Long numberBegin;
-    private Long numberEnd;
 
     public Checklist() {
     }
 
-    public Checklist(Long id, Employee employee, Long numberImport, List<Ingredient> ingredients, Long numberBegin, Long numberEnd) {
+    public Checklist(Long id, Long numberImport, Long numberBegin, Long numberEnd, String dateCreated, Employee employee, List<Ingredient> ingredients) {
         this.id = id;
-        this.employee = employee;
         this.numberImport = numberImport;
-        this.ingredients = ingredients;
         this.numberBegin = numberBegin;
         this.numberEnd = numberEnd;
+        this.dateCreated = dateCreated;
+        this.employee = employee;
+        this.ingredients = ingredients;
+    }
+
+    public String getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(String dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     public Long getId() {

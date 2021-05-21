@@ -1,6 +1,7 @@
 package com.example.doanoopkitchenmanage.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "employee", schema = "kitchen-manage-do-an")
@@ -16,6 +17,8 @@ public class Employee {
     private String shift;
     @Column(name = "salary")
     private String salary;
+    @OneToMany(targetEntity = Checklist.class)
+    private List<Checklist> checklists;
 
     public Employee() {
     }
@@ -66,5 +69,13 @@ public class Employee {
 
     public void setSalary(String salary) {
         this.salary = salary;
+    }
+
+    public List<Checklist> getChecklists() {
+        return checklists;
+    }
+
+    public void setChecklists(List<Checklist> checklists) {
+        this.checklists = checklists;
     }
 }

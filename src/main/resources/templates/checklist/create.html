@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Create new employee</title>
+</head>
+<body>
+<p>
+  <a th:href="@{/home/checklist}">Back to checklist list</a>
+</p>
+<div id="form">
+  <form action="#" th:action="@{/home/checklist/save}" th:object="${checklist}" method="post" novalidate>
+    <fieldset>
+      <legend>checklist Information</legend>
+      <tr>
+        <td></td>
+        <label>ID</label></td>
+        <td><input type="text" th:field="*{id}" readonly></td></br>
+      </tr>
+      <tr>
+        <td><label>Date created</label></td>
+        <td><input type="date" th:field="*{dateCreated}"></td></br>
+      </tr>
+      <tr>
+        <td>Employee created:</td>
+        <td>
+          <select th:field="*{employee}">
+            <option th:each="e : ${employees}" th:value="${e.id}" th:text="${e.name}"></option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Create"></td></br>
+      </tr>
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>

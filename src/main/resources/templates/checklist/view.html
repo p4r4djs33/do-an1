@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View province</title>
+</head>
+<body>
+<h1>View checklist: <span th:text="${checklist.dateCreated}"></span></h1>
+<a href="/home/checklist">Checklist list</a>
+<a href="/home/ingredient/create">Create ingredient this day</a>
+<table border="1">
+    <tr>
+        <th>Name ingredient</th>
+        <th>Amount Begin</th>
+        <th>Amount End</th>
+        <th>Date</th>
+    </tr>
+    <th:block th:each="ingredient : ${ingredients}">
+        <tr>
+            <td th:text="${ingredient.name}"></td>
+            <td th:text="${ingredient.amountBegin}"></td>
+            <td th:text="${ingredient.amountEnd}"></td>
+            <td th:text="${ingredient.checklist.dateCreated}"></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

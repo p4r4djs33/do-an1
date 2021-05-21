@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Optional;
+
 @Controller
 public class EmployeeController {
     @Autowired
@@ -41,9 +43,10 @@ public class EmployeeController {
 
     //-----EDIT EMPLOYEE
     @GetMapping("/home/employee/{id}/edit")
-    public ModelAndView edit(@PathVariable Long id) {
+    public ModelAndView edit(@PathVariable("id") Long id) {
+        Optional<Employee> employee = employeeService.findById(id);
         ModelAndView modelAndView = new ModelAndView("employee/edit");
-        modelAndView.addObject("employee", employeeService.findById(id));
+        modelAndView.addObject("employee", employee.get());
         return modelAndView;
     }
 
@@ -57,8 +60,9 @@ public class EmployeeController {
     //-----DELETE EMPLOYEE
     @GetMapping("/home/employee/{id}/delete")
     public ModelAndView delete(@PathVariable("id") Long id) {
+        Optional<Employee> employee = employeeService.findById(id);
         ModelAndView modelAndView = new ModelAndView("employee/delete");
-        modelAndView.addObject("employee", employeeService.findById(id));
+        modelAndView.addObject("employee",employee.get());
         return modelAndView;
     }
     @PostMapping("/home/employee/delete")
@@ -69,7 +73,8 @@ public class EmployeeController {
     }
     @GetMapping("/home/employee/{id}/view")
     public String view(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("employee", employeeService.findById(id));
+        Optional<Employee> employee = employeeService.findById(id);
+        model.addAttribute("employee", employee.get());
         return "employee/view";
     }
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Create new ingredient</title>
+</head>
+<body>
+<p>
+  <a th:href="@{/home/ingredient}">Back to ingredient list</a>
+</p>
+<th:block th:if="${message}">
+  <p th:text="${message}"></p>
+</th:block>
+<div id="form">
+  <form action="#" th:action="@{/home/ingredient/save}" th:object="${ingredient}" method="post" novalidate>
+    <fieldset>
+      <legend>Employee Information</legend>
+      <tr>
+        <td></td>
+        <label>ID</label></td>
+        <td><input type="text" th:field="*{id}"></td></br>
+      </tr>
+      <tr>
+        <td><label>Name</label></td>
+        <td><input type="text" th:field="*{name}"></td></br>
+      </tr>
+      <tr>
+        <td><label>Amount Begin</label></td>
+        <td><input type="text" th:field="*{amountBegin}"></td></br>
+      </tr>
+      <tr>
+        <td><label>Amount End</label></td>
+        <td><input type="text" th:field="*{amountEnd}"></td></br>
+      </tr>
+      <tr>
+        <td>Checklist:</td>
+        <td>
+          <select th:field="*{checklist}">
+            <option th:each="c : ${checklists}" th:value="${c.id}" th:text="${c.dateCreated}"></option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Create"></td></br>
+      </tr>
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>
