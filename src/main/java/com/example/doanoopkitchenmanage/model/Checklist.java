@@ -10,9 +10,6 @@ public class Checklist {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long numberImport;
-    private Long numberBegin;
-    private Long numberEnd;
     private String dateCreated;
     @ManyToOne
     @JoinColumn(name = "employee_id")
@@ -26,9 +23,6 @@ public class Checklist {
 
     public Checklist(Long id, Long numberImport, Long numberBegin, Long numberEnd, String dateCreated, Employee employee, List<Ingredient> ingredients) {
         this.id = id;
-        this.numberImport = numberImport;
-        this.numberBegin = numberBegin;
-        this.numberEnd = numberEnd;
         this.dateCreated = dateCreated;
         this.employee = employee;
         this.ingredients = ingredients;
@@ -58,35 +52,4 @@ public class Checklist {
         this.employee = employee;
     }
 
-    public Long getNumberImport() {
-        return numberImport;
-    }
-
-    public void setNumberImport(Long numberImport) {
-        this.numberImport = numberImport;
-    }
-
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    public Long getNumberBegin() {
-        return numberBegin;
-    }
-
-    public void setNumberBegin(Long numberBegin) {
-        this.numberBegin = numberBegin;
-    }
-
-    public Long getNumberEnd() {
-        return numberEnd;
-    }
-
-    public void setNumberEnd(Long numberEnd) {
-        this.numberEnd = numberEnd;
-    }
 }

@@ -2,18 +2,23 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>View province</title>
+    <title>View checklist</title>
 </head>
 <body>
 <h1>View checklist: <span th:text="${checklist.dateCreated}"></span></h1>
-<a href="/home/checklist">Checklist list</a>
-<a href="/home/ingredient/create">Create ingredient this day</a>
+<a th:href="@{/home/checklist}">Back to checklist list</a></br>
+<a th:href="@{/home/checklist/__${id}__/create/ingredient}">Create ingredient this day</a></br>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
 <table border="1">
     <tr>
         <th>Name ingredient</th>
         <th>Amount Begin</th>
         <th>Amount End</th>
         <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     <th:block th:each="ingredient : ${ingredients}">
         <tr>
@@ -21,6 +26,8 @@
             <td th:text="${ingredient.amountBegin}"></td>
             <td th:text="${ingredient.amountEnd}"></td>
             <td th:text="${ingredient.checklist.dateCreated}"></td>
+            <td><a th:href="@{/home/checklist/__${id}__/view/edit/{id2}(id2=${ingredient.getId()})}">edit</a></td>
+            <td><a th:href="@{/home/checklist/__${id}__/view/delete/{id2}(id2=${ingredient.getId()})}">delete</a></td>
         </tr>
     </th:block>
 </table>

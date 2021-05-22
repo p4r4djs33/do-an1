@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
-  <title>Create new employee</title>
+  <title>Create new checklist</title>
 </head>
 <body>
 <p>
@@ -14,8 +14,7 @@
       <legend>checklist Information</legend>
       <tr>
         <td></td>
-        <label>ID</label></td>
-        <td><input type="text" th:field="*{id}" readonly></td></br>
+        <td><input type="hidden" th:field="*{id}" readonly></td></br>
       </tr>
       <tr>
         <td><label>Date created</label></td>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Delete Ingredient</title>
+</head>
+<body>
+<p>
+  <a th:href="@{/home/checklist/__${id}__/view}">Back to checklist view</a>
+</p>
+<th:block th:if="${message}">
+  <p th:text="${message}"></p>
+</th:block>
+<h1>Checklist: <span th:text="${ingredient.checklist.dateCreated}"></span></h1>
+<h1>Are you sure you want to delete this ingredient?</h1>
+<div id="form">
+  <form action="#" th:action="@{/home/checklist/__${id}__/view/delete/{id2}(id2=${ingredient.getId()})}" th:object="${ingredient}" method="post" novalidate>
+    <fieldset>
+      <legend>Ingredient Information</legend>
+      <tr>
+        <td><input type="hidden" th:field="*{id}"></td></br>
+      </tr>
+      <tr>
+        <td><label>Name</label></td>
+        <td><input type="text" th:field="*{name}"></td></br>
+      </tr>
+      <tr>
+        <td><label>Amount Begin</label></td>
+        <td><input type="text" th:field="*{amountBegin}"></td></br>
+      </tr>
+      <tr>
+        <td><label>Amount End</label></td>
+        <td><input type="text" th:field="*{amountEnd}"></td></br>
+      </tr>
+
+      <tr>
+
+        <td><input type="hidden" th:field="*{checklist.id}"></td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Delete"></td></br>
+      </tr>
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>

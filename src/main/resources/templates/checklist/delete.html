@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Delete checklist</title>
+</head>
+<body>
+<p>
+  <a th:href="@{/home/checklist}">Back to checklist list</a>
+</p>
+<h1>Are you sure you want to delete this checklist?</h1>
+<div id="form">
+  <form th:action="@{/home/checklist/delete}" th:object="${checklist}" method="post" novalidate>
+    <fieldset>
+      <legend>Checklist Information</legend>
+      <tr>
+        <td><input type="hidden" th:field="*{id}" readonly></td></br>
+      </tr>
+      <tr>
+        <td><label>Date created</label></td>
+        <td><input type="date" th:field="*{dateCreated}" readonly></td></br>
+      </tr>
+      <tr>
+        <td><label>Employee created</label></td>
+        <td><input type="text" th:field="*{employee}" readonly></td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Delete"></td></br>
+      </tr>
+    </fieldset>
+
+  </form>
+</div>
+</body>
+</html>
