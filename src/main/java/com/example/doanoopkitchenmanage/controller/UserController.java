@@ -45,6 +45,10 @@ public class UserController {
         }
         return modelAndView;
     }
+    @GetMapping("/home")
+    public String home() {
+        return "login/home";
+    }
     @GetMapping("/home/dish")
     public String index(Model model) {
         return "dish/homeDish";

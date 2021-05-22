@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingredient</title>
+</head>
+<body>
+<h1>Ingredient list</h1>
+<p id="Create">
+    <a th:href="@{/home/main-ingredient/create}"><button>Create new ingredient </button></a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<table id="ingredients" border="2" style="border: black">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Last Date Import</th>
+        <th>Employee Import</th>
+        <th>Amount</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${ingredients}">
+        <td th:text="${row.getName()}"></td>
+        <td th:text="${row.getDateImport()}"></td>
+        <td th:text="${row.getEmployee().getName()}"></td>
+        <td th:text="${row.getAmount()}"></td>
+        <td><a th:href="@{/home/main-ingredient/{id}/edit(id=${row.getId()})}"> <button>edit</button></a></td>
+        <td><a th:href="@{/home/main-ingredient/{id}/delete(id=${row.getId()})}"><button>delete</button></a></td>
+        <td><a th:href="@{/home/main-ingredient/{id}/view(id=${row.getId()})}"><button>view</button></a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

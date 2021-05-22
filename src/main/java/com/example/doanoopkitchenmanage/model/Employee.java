@@ -19,6 +19,8 @@ public class Employee {
     private String salary;
     @OneToMany(targetEntity = Checklist.class)
     private List<Checklist> checklists;
+    @OneToMany(targetEntity = MainIngredient.class)
+    private List<MainIngredient> mainIngredients;
 
     public Employee() {
     }

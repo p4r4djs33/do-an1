@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+  <a th:href="@{/home/main-ingredient}">Back to ingredient list</a>
+</p>
+<div id="form">
+  <form action="#" th:action="@{/home/main-ingredient/save}" th:object="${ingredient}" method="post" novalidate>
+    <fieldset>
+      <legend>Ingredient Information</legend>
+      <tr>
+        <td><input type="hidden" th:field="*{id}" readonly ></td></br>
+      </tr>
+      <tr>
+        <td><label>Name          </label></td>
+        <td><input type="text" th:field="*{name}"></td></br>
+      </tr>
+      <tr>
+        <td><label >Date Import</label></td>
+        <td><input type="date" th:field="*{dateImport}"></td></br>
+      </tr>
+      <tr>
+        <td>Employee Import:</td>
+        <td>
+          <select th:field="*{employee}">
+            <option th:each="e : ${employees}" th:value="${e.id}" th:text="${e.name}"></option>
+          </select>
+        </td></br>
+      </tr>
+      <tr>
+        <td><label>Amount</label></td>
+        <td><input type="text" th:field="*{amount}"></td></br>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Create"></td></br>
+      </tr>
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>
