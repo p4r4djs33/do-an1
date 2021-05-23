@@ -2,6 +2,7 @@ package com.example.doanoopkitchenmanage.service.ingredient.impl;
 
 import com.example.doanoopkitchenmanage.model.Checklist;
 import com.example.doanoopkitchenmanage.model.Ingredient;
+import com.example.doanoopkitchenmanage.model.Report;
 import com.example.doanoopkitchenmanage.repository.IngredientRepository;
 import com.example.doanoopkitchenmanage.service.ingredient.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,10 @@ public class IngredientServiceImpl implements IngredientService {
     @Override
     public Iterable<Ingredient> findAllByChecklist(Checklist checklist) {
         return ingredientRepository.findAllByChecklist(checklist);
+    }
+
+    @Override
+    public Iterable<Ingredient> findAllByReport(Report report) {
+        return ingredientRepository.findAllByReport(report);
     }
 }

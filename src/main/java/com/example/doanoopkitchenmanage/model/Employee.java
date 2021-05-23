@@ -21,16 +21,21 @@ public class Employee {
     private List<Checklist> checklists;
     @OneToMany(targetEntity = MainIngredient.class)
     private List<MainIngredient> mainIngredients;
+    @OneToMany(targetEntity = Report.class)
+    private List<Report> reports;
 
     public Employee() {
     }
 
-    public Employee(Long id, String name, String numberContact, String shift, String salary) {
+    public Employee(Long id, String name, String numberContact, String shift, String salary, List<Checklist> checklists, List<MainIngredient> mainIngredients, List<Report> reports) {
         this.id = id;
         this.name = name;
         this.numberContact = numberContact;
         this.shift = shift;
         this.salary = salary;
+        this.checklists = checklists;
+        this.mainIngredients = mainIngredients;
+        this.reports = reports;
     }
 
     public Long getId() {
@@ -79,5 +84,21 @@ public class Employee {
 
     public void setChecklists(List<Checklist> checklists) {
         this.checklists = checklists;
+    }
+
+    public List<MainIngredient> getMainIngredients() {
+        return mainIngredients;
+    }
+
+    public void setMainIngredients(List<MainIngredient> mainIngredients) {
+        this.mainIngredients = mainIngredients;
+    }
+
+    public List<Report> getReports() {
+        return reports;
+    }
+
+    public void setReports(List<Report> reports) {
+        this.reports = reports;
     }
 }

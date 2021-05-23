@@ -15,15 +15,20 @@ public class Ingredient {
     @JoinColumn(name = "checklist_id")
     private Checklist checklist;
 
+    @ManyToOne
+    @JoinColumn(name = "report_id")
+    private Report report;
+
     public Ingredient() {
     }
 
-    public Ingredient(Long id, String name, Long amountBegin, Long amountEnd, Checklist checklist) {
+    public Ingredient(Long id, String name, Long amountBegin, Long amountEnd, Checklist checklist, Report report) {
         this.id = id;
         this.name = name;
         this.amountBegin = amountBegin;
         this.amountEnd = amountEnd;
         this.checklist = checklist;
+        this.report = report;
     }
 
     public Long getId() {
@@ -64,5 +69,13 @@ public class Ingredient {
 
     public void setChecklist(Checklist checklist) {
         this.checklist = checklist;
+    }
+
+    public Report getReport() {
+        return report;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
     }
 }
